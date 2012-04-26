@@ -1,1 +1,9 @@
 Coupom manager app
+
+
+1. Quando ele clicar no botao na tela, fazer um POST pra URL:
+ params[:attempt][:return_uri]
+ params[:user_id]
+2. nao permitir criar mais usuario s no live ,pois ja temos contato@caelum.com.br
+
+descrever aqui o que a app faz

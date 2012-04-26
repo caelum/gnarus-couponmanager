@@ -101,6 +101,8 @@ class AmazonKeysController < ApplicationController
     end
   end
 
+
+  private
   def envia_email_acabando_chaves
     avaliable_keys = AmazonKey.avaliable
         
