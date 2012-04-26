@@ -1,0 +1,24 @@
+<%= form_for(@amazon_key) do |f| %>
+  <% if @amazon_key.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@amazon_key.errors.count, "error") %> prohibited this amazon_key from being saved:</h2>
+
+      <ul>
+      <% @amazon_key.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="field">
+      <%= f.label :key_code %><br />
+      <%= text_area_tag 'key_codes', nil, :rows => 10, :cols => 70 %>
+    </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

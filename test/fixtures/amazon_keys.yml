@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  key_code: MyString
+  user_email: MyString
+  assignment_date: 2012-03-30
+
+two:
+  key_code: MyString
+  user_email: MyString
+  assignment_date: 2012-03-30
