@@ -7,6 +7,10 @@ class AmazonKey < ActiveRecord::Base
   def to_s
     "Key: #{self.key_code}"
   end
+  
+  def to_hash
+    {'user_id' => @user_id, 'key' => @key_code}
+  end
 
   def self.find_by_user_id_or_assign_to_user(user_id)
     key = AmazonKey.find_by_user_id(user_id)
