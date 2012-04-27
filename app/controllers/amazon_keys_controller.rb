@@ -91,16 +91,10 @@ class AmazonKeysController < ApplicationController
     user_id = params[:attempt][:author_id]
     token_manager = TokenManager.new(user_id, params[:check])
     
-    return_uri = params[:attempt][:return_uri]
-
     begin
       if token_manager.valid?
         @amazon_key = AmazonKey.find_by_user_id_or_assign_to_user(user_id)
-        
-        puts "FAZENDO O POST! Key#{@amazon_key}  #{URI.parse(return_uri)}"
-
-        Net::HTTP.post_form(URI.parse(return_uri), 'key' => @amazon_key)
-        #Net::HTTP.post_form(URI.parse(return_uri), @amazon_key.to_hash)
+        @return_uri = params[:attempt][:return_uri]
       else
         render 'amazon_keys/invalid_token' 
       end

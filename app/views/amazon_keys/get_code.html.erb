@@ -1,4 +1,9 @@
 <p>
-  <b>Key code:</b>
-  <%= @amazon_key.key_code %>
+  <b>Parabéns! Você ganhou a seguinte chave para testar seus conhecimentos na Amazon:<b><%= @amazon_key.key_code %>
+	
+	<form action ="<%= @return_uri %>" >
+		<input type="hidden"  name = "answer" value = "<%= @amazon_key.key_code %>">
+		<input id="form" type="submit" value="Continuar">
+	</form>
+
 </p>
