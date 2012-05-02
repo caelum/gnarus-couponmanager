@@ -26,4 +26,4 @@ public/uploads/*
 #log
 #.bundle
 
-/config/seed.rb
+#/config/seed.rb <- no heroku precisa existir esse arquivo
