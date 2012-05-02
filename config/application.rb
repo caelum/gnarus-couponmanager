@@ -63,9 +63,12 @@ module AmazonKeyManager
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => ENV['GMAIL_SMTP_USER'],
-      :user_name            => ENV['GMAIL_SMTP_USER'],
-      :password             => ENV['GMAIL_SMTP_PASSWORD'],
+      :domain               => 'caelum.online.key.sender@gmail.com',
+      :user_name            => 'caelum.online.key.sender@gmail.com',
+      :password             => 'Teste1234',
+      # :domain               => ENV['GMAIL_SMTP_USER'],
+      # :user_name            => ENV['GMAIL_SMTP_USER'],
+      # :password             => ENV['GMAIL_SMTP_PASSWORD'],
       :authentication       => 'plain',
     }
   end
