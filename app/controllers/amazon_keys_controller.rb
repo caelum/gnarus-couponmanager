@@ -88,7 +88,7 @@ class AmazonKeysController < ApplicationController
 
 
   def get_code
-    user_id = params[:attempt][:author_id]
+    user_id = params[:attempt][:author_id] || params[:user_id]
     token_manager = TokenManager.new(user_id, params[:check])
     
     begin
