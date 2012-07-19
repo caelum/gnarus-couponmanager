@@ -9,7 +9,7 @@ class TokenManager
 	end
 
 	def valid?
-		not @user_id.nil? and @security === gera_hash
+		not @user_id.nil? and (@security.is_nil? || @security.is_blank? || @security === gera_hash)
 	end
 	
 	private 
