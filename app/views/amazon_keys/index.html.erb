@@ -8,6 +8,7 @@
     <th></th>
     <th></th>
     <th></th>
+	<th></th>
   </tr>
 
 <% @amazon_keys.each do |amazon_key| %>
@@ -15,7 +16,12 @@
     <td><%= amazon_key.key_code %></td>
     <td><%= amazon_key.user_id %></td>
     <td><%= amazon_key.assignment_date %></td>
-   
+   	<td>
+		<form action="amazon_key/unassign" method="post">
+			<input type="hidden" name="user_id" value="<%= amazon_key.user_id %>">
+			<input type="submit" value="Liberar para outro usuario">
+		</form>
+	</td>
   </tr>
 <% end %>
 </table>

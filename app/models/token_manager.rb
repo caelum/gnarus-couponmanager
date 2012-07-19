@@ -8,12 +8,12 @@ class TokenManager
 		@@token ||= File.read("config/seed.rb")
 	end
 
+	def valid?
+		not @user_id.nil? and @security === gera_hash
+	end
+	
+	private 
 	def gera_hash
 	  	Digest::MD5.hexdigest("#{@@token}::#{@user_id}")
-	end
-
-	def valid?
-		#@security === gera_hash
-		true
 	end
 end

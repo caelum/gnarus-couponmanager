@@ -86,10 +86,18 @@ class AmazonKeysController < ApplicationController
     end
   end
 
+  def unassign_key
+     user_id = params[:user_id] || params[:attempt][:author_id] || params[:attempt][:user_id]
+     
+     @amazon_key = AmazonKey.unassign_key_for_user(user_id.to_i)
+  end
+
 
   def get_code
-    user_id = params[:attempt][:author_id] || params[:user_id]
-    token_manager = TokenManager.new(user_id, params[:check])
+    user_id = params[:user_id] || params[:attempt][:author_id]
+    check_id = params[:attempt][:check_id]
+    
+    token_manager = TokenManager.new(user_id, check_id)
     
     begin
       if token_manager.valid?

@@ -8,6 +8,7 @@ AmazonKeyManager::Application.routes.draw do
   get "amazon_keys/new" =>  "amazon_keys#new", :as => "new_amazon_key" 
   get  "amazon_key/:id" => "amazon_keys#show"
   get "amazon_key" => "amazon_keys#get_code"
+  post "amazon_key/unassign" => "amazon_keys#unassign_key", :as => "unassign_key"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

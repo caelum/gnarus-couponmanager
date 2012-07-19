@@ -8,14 +8,16 @@ class AmazonKey < ActiveRecord::Base
     "Key: #{self.key_code}"
   end
   
-  def to_hash
-    {'user_id' => @user_id, 'key' => @key_code}
+  def self.unassign_key_for_user(user_id)
+      key = AmazonKey.find_by_user_id(user_id)
+      key.unassign if key
+      key
   end
 
   def self.find_by_user_id_or_assign_to_user(user_id)
     key = AmazonKey.find_by_user_id(user_id)
   	unless key
-  		key = AmazonKey.where(:assignment_date => nil).first
+  		key = AmazonKey.where(:user_id => nil).first
   		
   		raise NoAvaliableKeysError unless key
   		
@@ -26,6 +28,15 @@ class AmazonKey < ActiveRecord::Base
   
   def self.avaliable
     AvaliableKeys.new(AmazonKey.where(:assignment_date => nil).count)
+  end
+  
+  def unassign
+    update_attributes :user_id => nil, :assignment_date => nil
+    self
+  end
+  
+  def assigned?
+    self.user_id != nil
   end
 
 end
